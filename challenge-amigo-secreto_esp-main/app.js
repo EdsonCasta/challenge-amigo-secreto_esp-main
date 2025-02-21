@@ -9,18 +9,24 @@ function addFriends() {
     input.value = "";
 
     if (name === "") {
-        alert("Por favor, inserte un nombre válido.");
+        alert("Por favor, inserte un nombre.");
         return;
     }
 
     friends.push(name);
 
-    let list = document.getElementById("listaAmigos");
-    let listName = document.createElement("li");
+    updateFriendsList();
+};
 
-    listName.innerText = name;
-    list.appendChild(listName)
+function updateFriendsList() {
 
-    console.log(friends)
+    let list = document.querySelector("#listaAmigos");
+    list.innerHTML = "";
 
+    for (let friend of friends) {
+
+        let listName = document.createElement("li");
+        listName.innerText = friend;
+        list.appendChild(listName)
+    };
 };
